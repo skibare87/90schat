@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - CLIENT_URL=http://localhost:3001
+      - DB_PATH=/app/data/chat.db
+      - JWT_SECRET=${JWT_SECRET:-default-secret-change-in-production}
+      - JWT_EXPIRES_IN=24h
+      - MAX_ROOM_SIZE=${MAX_ROOM_SIZE:-20}
+      - ENABLE_SIGNUP=${ENABLE_SIGNUP:-true}
+    volumes:
+      - server_data:/app/data
+    networks:
+      - aol_chat_network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3001:80"
+    environment:
+      - SERVER_URL=http://localhost:3000
+    networks:
+      - aol_chat_network
+    depends_on:
+      - server
+
+volumes:
+  server_data:
+
+networks:
+  aol_chat_network:
+    driver: bridge

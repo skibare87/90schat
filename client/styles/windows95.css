@@ -1,0 +1,586 @@
+/* Windows 95 Theme and Chat Window Styles */
+
+/* Authentic AOL Chat Window Styling */
+.chat-window {
+    width: 640px;
+    height: 480px;
+    position: absolute;
+    top: 100px;
+    left: 400px;
+    resize: both;
+    overflow: hidden;
+    min-width: 500px;
+    min-height: 400px;
+    background: var(--aol-gray);
+}
+
+.chat-header {
+    background: linear-gradient(90deg, #0000ff 0%, #0080ff 100%);
+    color: white;
+    padding: 2px 4px 2px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    height: 20px;
+}
+
+.chat-content {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 20px);
+    background: var(--aol-light-gray);
+}
+
+/* AOL Menu Bar */
+.aol-menu-bar {
+    background: var(--aol-gray);
+    border-bottom: 1px solid var(--aol-dark-gray);
+    padding: 2px;
+    font-size: 11px;
+    display: flex;
+}
+
+.aol-menu-item {
+    padding: 4px 8px;
+    cursor: pointer;
+    position: relative;
+}
+
+.aol-menu-item:hover {
+    background: var(--aol-blue);
+    color: white;
+}
+
+/* AOL Toolbar */
+.aol-toolbar {
+    background: var(--aol-gray);
+    border-bottom: 1px solid var(--aol-dark-gray);
+    padding: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    align-items: center;
+}
+
+.aol-toolbar-section {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    padding-right: 8px;
+    border-right: 1px solid var(--aol-dark-gray);
+    margin-right: 8px;
+}
+
+.aol-toolbar-section:last-child {
+    border-right: none;
+    margin-right: 0;
+}
+
+.aol-toolbar-button {
+    padding: 2px 6px;
+    border: 1px outset var(--aol-gray);
+    background: var(--aol-gray);
+    font-size: 10px;
+    cursor: pointer;
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.aol-toolbar-button:active {
+    border: 1px inset var(--aol-gray);
+}
+
+.aol-toolbar-button:hover {
+    background: #d0d0d0;
+}
+
+.aol-search-box {
+    padding: 2px 4px;
+    border: 2px inset var(--aol-gray);
+    font-size: 10px;
+    width: 200px;
+}
+
+/* Chat Layout */
+
+.chat-main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    background: var(--aol-light-gray);
+}
+
+.chat-messages-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+    margin-right: 2px;
+}
+
+.chat-messages {
+    flex: 1;
+    background: white;
+    border: 2px inset var(--aol-gray);
+    padding: 6px;
+    overflow-y: auto;
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* Authentic AOL Message Styling */
+.aol-message {
+    margin-bottom: 1px;
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+.aol-message.system {
+    color: #008000;
+    font-weight: bold;
+}
+
+.aol-message.host {
+    color: #0000ff;
+}
+
+.aol-message-username {
+    font-weight: bold;
+    display: inline;
+}
+
+.aol-message-username.regular {
+    color: #000080;
+}
+
+.aol-message-username.host {
+    color: #ff0000;
+}
+
+.aol-message-username.guide {
+    color: #008000;
+}
+
+.aol-message-content {
+    color: #000000;
+    display: inline;
+}
+
+.aol-message.deleted {
+    opacity: 0.5;
+    text-decoration: line-through;
+    color: #666;
+}
+
+.message-actions {
+    display: none;
+    margin-left: 8px;
+}
+
+.message:hover .message-actions {
+    display: inline;
+}
+
+.message-delete-btn {
+    background: #ff4444;
+    color: white;
+    border: 1px solid #cc0000;
+    padding: 1px 4px;
+    font-size: 8px;
+    cursor: pointer;
+}
+
+/* AOL Bottom Toolbar */
+.aol-bottom-toolbar {
+    background: var(--aol-gray);
+    border-top: 1px solid var(--aol-dark-gray);
+    padding: 4px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.aol-bottom-button {
+    padding: 2px 8px;
+    border: 1px outset var(--aol-gray);
+    background: var(--aol-gray);
+    font-size: 9px;
+    cursor: pointer;
+    min-height: 18px;
+}
+
+.aol-bottom-button:active {
+    border: 1px inset var(--aol-gray);
+}
+
+.aol-bottom-button:hover {
+    background: #d0d0d0;
+}
+
+/* AOL Chat Input Area */
+.aol-chat-input-section {
+    background: var(--aol-gray);
+    border-top: 1px solid var(--aol-dark-gray);
+    padding: 4px;
+    margin: 4px;
+    border: 2px inset var(--aol-gray);
+}
+
+.aol-chat-input-container {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.aol-chat-input {
+    flex: 1;
+    border: 2px inset var(--aol-gray);
+    padding: 3px 4px;
+    font-family: inherit;
+    font-size: 10px;
+    background: white;
+}
+
+.aol-chat-input:focus {
+    outline: none;
+    background: #ffffcc;
+}
+
+.aol-send-button {
+    padding: 2px 12px;
+    border: 2px outset var(--aol-gray);
+    background: var(--aol-gray);
+    font-family: inherit;
+    font-size: 10px;
+    cursor: pointer;
+    min-height: 21px;
+}
+
+.aol-send-button:active {
+    border: 2px inset var(--aol-gray);
+}
+
+/* AOL User List */
+.aol-users-section {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+    margin-left: 2px;
+}
+
+.aol-users-header {
+    background: white;
+    border: 2px inset var(--aol-gray);
+    padding: 4px 8px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: none;
+}
+
+.aol-users-count {
+    color: #000080;
+}
+
+.aol-users {
+    flex: 1;
+    background: white;
+    border: 2px inset var(--aol-gray);
+    border-top: 1px solid var(--aol-dark-gray);
+    padding: 4px;
+    overflow-y: auto;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+/* AOL User Item Styling */
+.aol-user-item {
+    padding: 1px 2px;
+    cursor: pointer;
+    font-size: 10px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.aol-user-item:hover {
+    background: #0080ff;
+    color: white;
+}
+
+.aol-user-item.host {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.aol-user-item.guide {
+    color: #008000;
+    font-weight: bold;
+}
+
+.aol-user-item.admin {
+    color: #800080;
+    font-weight: bold;
+}
+
+.aol-user-item.self {
+    background: #ffffcc;
+}
+
+.user-status {
+    width: 8px;
+    height: 8px;
+    background: #00ff00;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.user-context-menu {
+    position: absolute;
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    font-size: 10px;
+    min-width: 100px;
+}
+
+.context-menu-item {
+    padding: 4px 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #808080;
+}
+
+.context-menu-item:hover {
+    background: #0080ff;
+    color: white;
+}
+
+.context-menu-item:last-child {
+    border-bottom: none;
+}
+
+.context-menu-item.danger {
+    color: #ff0000;
+}
+
+/* Window Management */
+.window.minimized {
+    display: none;
+}
+
+.window.maximized {
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 20px) !important;
+    transform: none !important;
+}
+
+/* Taskbar */
+.taskbar {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: #c0c0c0;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #808080;
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    z-index: 200;
+}
+
+.taskbar-item {
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    padding: 4px 12px;
+    font-size: 10px;
+    cursor: pointer;
+    margin-right: 2px;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taskbar-item.active {
+    border: 2px inset #c0c0c0;
+    background: #b0b0b0;
+}
+
+/* Notification System */
+.notification {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    background: #ffffcc;
+    border: 2px outset #c0c0c0;
+    padding: 8px 12px;
+    font-size: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1500;
+    max-width: 250px;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification.sound {
+    background: #ccffcc;
+}
+
+.notification.private {
+    background: #ffcccc;
+}
+
+/* Sound and Visual Effects */
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+/* Desktop Icons */
+.desktop-icon {
+    position: absolute;
+    width: 64px;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    padding: 4px;
+    user-select: none;
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.desktop-icon img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+}
+
+/* AOL Specific Elements */
+.aol-buddy-list {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 180px;
+    height: 300px;
+}
+
+.typing-indicator {
+    font-style: italic;
+    color: #666;
+    font-size: 9px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* Connection Status Indicators */
+.connection-status {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.connection-status.online {
+    background: #00ff00;
+}
+
+.connection-status.offline {
+    background: #ff0000;
+}
+
+.connection-status.connecting {
+    background: #ffff00;
+    animation: pulse 1s infinite;
+}
+
+/* Retro Button Styles */
+.retro-button {
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+    padding: 4px 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+.retro-button:active {
+    border: 2px inset #c0c0c0;
+    background: #b0b0b0;
+}
+
+.retro-button:focus {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+}
+
+/* Classic Scrollbars for Firefox */
+.chat-messages {
+    scrollbar-width: auto;
+    scrollbar-color: #c0c0c0 #ffffff;
+}
+
+/* Menu Bar Styling */
+.menu-bar {
+    background: #c0c0c0;
+    border-bottom: 1px solid #808080;
+    font-size: 11px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item {
+    padding: 4px 12px;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu-item:hover {
+    background: #0080ff;
+    color: white;
+}
+
+/* Classic Windows 95 Colors */
+:root {
+    --win95-gray: #c0c0c0;
+    --win95-dark-gray: #808080;
+    --win95-light-gray: #ffffff;
+    --win95-blue: #0080ff;
+    --win95-dark-blue: #0000ff;
+    --win95-desktop: #008080;
+}

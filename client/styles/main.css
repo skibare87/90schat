@@ -1,0 +1,473 @@
+/* Main Application Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+    background: #008080;
+    color: #000000;
+    overflow: hidden;
+    cursor: default;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.screen.active {
+    display: block;
+}
+
+.desktop {
+    width: 100%;
+    height: 100%;
+    background: #008080;
+    background-image:
+        radial-gradient(circle at 25% 25%, #00a0a0 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, #006060 0%, transparent 50%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Login Screen Specific */
+#login-screen .desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+}
+
+/* Window Styling */
+.window {
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    min-width: 300px;
+    font-family: 'MS Sans Serif', sans-serif;
+}
+
+.window-header {
+    background: linear-gradient(90deg, #0000ff 0%, #0080ff 100%);
+    color: white;
+    padding: 2px 4px 2px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    height: 20px;
+}
+
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.window-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.control-btn {
+    width: 16px;
+    height: 14px;
+    background: #c0c0c0;
+    border: 1px outset #c0c0c0;
+    font-size: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+}
+
+.control-btn:active {
+    border: 1px inset #c0c0c0;
+}
+
+.window-content {
+    padding: 8px;
+}
+
+/* Login Window */
+.login-window {
+    width: 380px;
+    height: 320px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.aol-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.aol-logo img {
+    max-width: 200px;
+    height: auto;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.text-input {
+    width: 100%;
+    padding: 3px 4px;
+    border: 2px inset #c0c0c0;
+    background: white;
+    font-family: inherit;
+    font-size: 11px;
+}
+
+.text-input:focus {
+    outline: none;
+    background: #ffffcc;
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.button {
+    padding: 4px 16px;
+    border: 2px outset #c0c0c0;
+    background: #c0c0c0;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    min-height: 23px;
+}
+
+.button:active {
+    border: 2px inset #c0c0c0;
+}
+
+.button.primary {
+    background: #0080ff;
+    color: white;
+    font-weight: bold;
+}
+
+.button.small {
+    padding: 2px 8px;
+    font-size: 10px;
+    min-height: 19px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 13px;
+    height: 13px;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal.active {
+    display: block;
+}
+
+.signup-window {
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-help {
+    font-size: 9px;
+    color: #666;
+    margin-top: 2px;
+}
+
+/* Room List Window */
+.room-list-window {
+    width: 300px;
+    height: 400px;
+    top: 50px;
+    left: 50px;
+}
+
+.room-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #808080;
+}
+
+.room-list-header h3 {
+    font-size: 12px;
+    margin: 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+}
+
+.room-list-container {
+    height: 280px;
+    border: 2px inset #c0c0c0;
+    background: white;
+    overflow-y: auto;
+}
+
+.room-list {
+    padding: 4px;
+}
+
+.room-item {
+    padding: 4px 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+}
+
+.room-item:hover {
+    background: #0080ff;
+    color: white;
+}
+
+.room-item.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.room-item.disabled:hover {
+    background: transparent;
+    color: inherit;
+}
+
+.room-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.room-name {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.room-description {
+    font-size: 9px;
+    color: #666;
+}
+
+.room-stats {
+    text-align: right;
+    font-size: 9px;
+}
+
+.room-count {
+    font-weight: bold;
+}
+
+.room-full {
+    color: #ff0000;
+}
+
+.room-list-footer {
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Status Bar */
+.status-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: #c0c0c0;
+    border-top: 1px solid #808080;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    z-index: 100;
+}
+
+.status-section {
+    padding: 0 8px;
+    border-right: 1px solid #808080;
+}
+
+.status-section:last-child {
+    border-right: none;
+    margin-left: auto;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+}
+
+.loading-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-dialog {
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.loading-content img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 16px;
+    border: 2px inset #c0c0c0;
+    background: white;
+    margin: 12px auto 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0000ff 0%, #0080ff 100%);
+    width: 0%;
+    animation: progress 3s ease-in-out infinite;
+}
+
+@keyframes progress {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+/* Error Messages */
+.error-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 3000;
+}
+
+.error-message {
+    background: #ff6b6b;
+    color: white;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border: 2px outset #ff6b6b;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 10px;
+    max-width: 300px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Scrollbar Styling (Webkit) */
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #c0c0c0;
+    border: 1px inset #c0c0c0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border: 1px outset #c0c0c0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b0b0b0;
+}
+
+::-webkit-scrollbar-button {
+    background: #c0c0c0;
+    border: 1px outset #c0c0c0;
+    height: 16px;
+}
+
+::-webkit-scrollbar-button:hover {
+    background: #d0d0d0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .window {
+        width: 95vw !important;
+        height: 95vh !important;
+        top: 2.5vh !important;
+        left: 2.5vw !important;
+        transform: none !important;
+    }
+}

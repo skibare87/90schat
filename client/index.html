@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOL Chat Rooms - Welcome!</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/windows95.css">
+    <link rel="stylesheet" href="styles/aol-authentic.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen active">
+        <div class="desktop aol-desktop">
+            <div class="window aol-signin-window">
+                <div class="window-header aol-signin-header">
+                    <div class="window-title">
+                        <img src="assets/aol-icon.png" alt="AOL" class="window-icon">
+                        America Online - Sign On
+                    </div>
+                    <div class="window-controls">
+                        <button class="control-btn minimize">_</button>
+                        <button class="control-btn maximize">□</button>
+                        <button class="control-btn close">×</button>
+                    </div>
+                </div>
+                <div class="window-content aol-signin-content">
+                    <!-- AOL Header Banner -->
+                    <div class="aol-signin-banner">
+                        <img src="assets/aol-signin-logo.gif" alt="America Online" class="aol-signin-logo">
+                    </div>
+
+                    <!-- Sign On Form -->
+                    <div class="aol-signin-form">
+                        <div class="signin-main">
+                            <div class="signin-left">
+                                <div class="form-section">
+                                    <div class="form-group">
+                                        <label for="username" class="aol-label">Screen Name:</label>
+                                        <input type="text" id="username" class="aol-text-input" placeholder="Enter Screen Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="aol-label">Password:</label>
+                                        <input type="password" id="password" class="aol-text-input" placeholder="Enter Password">
+                                    </div>
+                                    <div class="form-options">
+                                        <label class="aol-checkbox-label">
+                                            <input type="checkbox" id="remember-me">
+                                            <span class="aol-checkmark"></span>
+                                            Save Password
+                                        </label>
+                                        <label class="aol-checkbox-label">
+                                            <input type="checkbox" id="auto-signin">
+                                            <span class="aol-checkmark"></span>
+                                            Automatic Sign On
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="signin-buttons">
+                                    <button id="sign-on-btn" class="aol-signin-button primary">Sign On</button>
+                                    <button id="setup-btn" class="aol-signin-button">Setup</button>
+                                </div>
+                            </div>
+
+                            <div class="signin-right">
+                                <div class="new-member-section">
+                                    <div class="new-member-header">
+                                        <strong>New Members</strong>
+                                    </div>
+                                    <div class="new-member-content">
+                                        <p>If you don't have an America Online account, click here to create one:</p>
+                                        <button id="signup-btn" class="aol-signup-button">Create Account</button>
+                                    </div>
+                                </div>
+
+                                <div class="help-section">
+                                    <div class="help-header">
+                                        <strong>Need Help?</strong>
+                                    </div>
+                                    <div class="help-links">
+                                        <a href="#" class="help-link">Forgot Password?</a><br>
+                                        <a href="#" class="help-link">Screen Name Help</a><br>
+                                        <a href="#" class="help-link">Connection Problems?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Status Bar -->
+                        <div class="signin-status-bar">
+                            <div class="status-left">
+                                <span class="connection-indicator offline"></span>
+                                <span>Offline - Ready to Connect</span>
+                            </div>
+                            <div class="status-right">
+                                <span>AOL Chat Rooms v1.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Icons -->
+            <div class="desktop-icons">
+                <div class="desktop-icon" style="top: 20px; left: 20px;">
+                    <img src="assets/aol-desktop-icon.png" alt="AOL">
+                    <span>America Online</span>
+                </div>
+                <div class="desktop-icon" style="top: 100px; left: 20px;">
+                    <img src="assets/recycle-bin.png" alt="Recycle Bin">
+                    <span>Recycle Bin</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="window signup-window">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="assets/aol-icon.png" alt="AOL" class="window-icon">
+                    Create New Screen Name
+                </div>
+                <div class="window-controls">
+                    <button class="control-btn close" id="close-signup">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <form id="signup-form" class="signup-form">
+                    <div class="form-group">
+                        <label for="new-username">Screen Name:</label>
+                        <input type="text" id="new-username" class="text-input" maxlength="20" required>
+                        <div class="form-help">3-20 characters, letters and numbers only</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Password:</label>
+                        <input type="password" id="new-password" class="text-input" minlength="6" required>
+                        <div class="form-help">At least 6 characters</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address (optional):</label>
+                        <input type="email" id="email" class="text-input">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="button primary">Create Account</button>
+                        <button type="button" class="button" id="cancel-signup">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Chat Interface -->
+    <div id="chat-screen" class="screen">
+        <div class="desktop">
+            <!-- AOL Chat Room Listings Window -->
+            <div id="room-list-window" class="window aol-chat-listings-window">
+                <div class="window-header">
+                    <div class="window-title">
+                        <img src="assets/aol-icon.png" alt="AOL" class="window-icon">
+                        AOL Chat Room Listings
+                    </div>
+                    <div class="window-controls">
+                        <button class="control-btn minimize">_</button>
+                        <button class="control-btn maximize">□</button>
+                        <button class="control-btn close" id="close-rooms">×</button>
+                    </div>
+                </div>
+                <div class="window-content aol-listings-content">
+                    <!-- Top toolbar with user info and buttons -->
+                    <div class="aol-toolbar">
+                        <div class="toolbar-left">
+                            <span id="current-username"></span>
+                        </div>
+                        <div class="toolbar-right">
+                            <button class="aol-button" id="main-btn">Main</button>
+                            <button class="aol-button" id="help-btn">Help</button>
+                            <button class="aol-button" id="logout-btn">Sign Off</button>
+                        </div>
+                    </div>
+
+                    <!-- AOL Header -->
+                    <div class="aol-header">
+                        <div class="aol-logo-section">
+                            <img src="assets/aol-chat-logo.gif" alt="AOL Chat Room Listings" class="aol-chat-logo">
+                        </div>
+                    </div>
+
+                    <!-- Search Section -->
+                    <div class="search-section">
+                        <label class="search-label">Search All Chats by Topic:</label>
+                        <div class="search-container">
+                            <input type="text" id="room-search" class="search-input" placeholder="Enter topic or keyword">
+                            <button id="search-btn" class="search-button">Search</button>
+                        </div>
+                    </div>
+
+                    <!-- Main Content Area -->
+                    <div class="aol-main-content">
+                        <!-- Left Sidebar - Categories -->
+                        <div class="categories-sidebar">
+                            <div class="category-header">
+                                <span class="category-number">1</span>
+                                <span class="category-text">Double-click to choose a category:</span>
+                            </div>
+                            <div class="category-selector">
+                                <label for="category-dropdown">Category:</label>
+                                <select id="category-dropdown" class="category-dropdown">
+                                    <option value="a-place-to-start">A Place To Start</option>
+                                </select>
+                            </div>
+                            <div class="category-list" id="category-list">
+                                <!-- Categories populated here -->
+                            </div>
+                        </div>
+
+                        <!-- Center Content - Room Listings -->
+                        <div class="room-listings-section">
+                            <!-- Tab Headers -->
+                            <div class="tab-headers">
+                                <button class="tab-header active" data-tab="people-connection">Created by People Connection</button>
+                                <button class="tab-header" data-tab="aol-members">Created by AOL Members</button>
+                            </div>
+
+                            <!-- Tab Content -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="people-connection-tab">
+                                    <div class="room-list-header">
+                                        <span class="room-number">2</span>
+                                        <span class="room-instruction">Double-click to enter a room:</span>
+                                    </div>
+                                    <div class="room-list-display">
+                                        <div class="room-list-subheader">
+                                            <span class="room-category-name">Rooms in "A Place To Start"</span>
+                                        </div>
+                                        <div class="room-list-container">
+                                            <div id="room-list" class="authentic-room-list">
+                                                <!-- Rooms will be populated here -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="aol-members-tab">
+                                    <div class="aol-rooms-content">
+                                        <p>AOL Member-created rooms coming soon...</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Buttons -->
+                            <div class="room-action-buttons">
+                                <button id="go-chat-btn" class="aol-action-button">Go Chat</button>
+                                <button id="whos-chatting-btn" class="aol-action-button">Who's Chatting</button>
+                                <button id="more-btn" class="aol-action-button">More</button>
+                            </div>
+                        </div>
+
+                        <!-- Right Sidebar - Ads and Features -->
+                        <div class="right-sidebar">
+                            <!-- Chat with People Like You -->
+                            <div class="sidebar-section">
+                                <div class="section-header chat-with-people">Chat With People Like You</div>
+                                <div class="section-content">
+                                    <ul class="people-links">
+                                        <li><a href="#" class="people-link">Piercing and Tattoos</a></li>
+                                        <li><a href="#" class="people-link">Five Spiritual Britney Fans</a></li>
+                                        <li><a href="#" class="people-link">Daimlals</a> | <a href="#" class="people-link">Hey Girlfriend</a></li>
+                                    </ul>
+                                    <div class="action-buttons">
+                                        <button class="sidebar-button">Start Your Own Chat</button>
+                                        <button class="sidebar-button">Enter or Start Private Chat</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Top City Chats -->
+                            <div class="sidebar-section">
+                                <div class="section-header top-city">Top City Chats</div>
+                                <div class="section-content">
+                                    <ol class="city-list">
+                                        <li><a href="#" class="city-link">New York</a></li>
+                                        <li><a href="#" class="city-link">Los Angeles</a></li>
+                                        <li><a href="#" class="city-link">Miami</a></li>
+                                        <li><a href="#" class="city-link">Chicago</a></li>
+                                        <li><a href="#" class="city-link">Boston</a></li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <!-- Go Where the People Are -->
+                            <div class="sidebar-section">
+                                <div class="section-header people-section">Go Where the People Are</div>
+                                <div class="section-content">
+                                    <div class="advertisement">
+                                        <img src="assets/pals-photos-ad.jpg" alt="Pals photos, find a little, get the star treatment, more" class="ad-image">
+                                        <div class="ad-text">
+                                            Pals photos, find a<br>
+                                            little, get the star<br>
+                                            treatment, more<br>
+                                            • <a href="#" class="ad-link">Join the Fun</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Keywords -->
+                            <div class="keywords-footer">
+                                AOL Keywords: Chat Room Listings
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Window Template (will be created dynamically) -->
+        </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div id="status-bar" class="status-bar">
+        <div class="status-section">
+            <span id="connection-status">Offline</span>
+        </div>
+        <div class="status-section">
+            <span id="current-time"></span>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading" class="loading-overlay">
+        <div class="loading-dialog">
+            <div class="loading-content">
+                <img src="assets/aol-loading.gif" alt="Loading...">
+                <p>Connecting to America Online...</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Messages -->
+    <div id="error-messages" class="error-container"></div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/aol-manager.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

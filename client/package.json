@@ -1,0 +1,26 @@
+{
+  "name": "aol-chat-client",
+  "version": "1.0.0",
+  "description": "Nostalgic AOL Chat Room Client",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3001 -c-1",
+    "dev": "npx http-server . -p 3001 -c-1 -o",
+    "build": "echo \"Static files ready for deployment\""
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.7.2"
+  },
+  "keywords": [
+    "aol",
+    "chat",
+    "client",
+    "90s",
+    "nostalgia"
+  ],
+  "author": "",
+  "license": "MIT"
+}
