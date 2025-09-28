@@ -6,7 +6,7 @@ services:
       context: ./server
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3002:3000"
     environment:
       - PORT=3000
       - CLIENT_URL=http://localhost:3001
@@ -21,13 +21,11 @@ services:
       - aol_chat_network
 
   client:
-    build:
-      context: ./client
-      dockerfile: Dockerfile
+    image: docker.dingo.bar/90s-chat-client:latest
     ports:
       - "3001:80"
     environment:
-      - SERVER_URL=http://localhost:3000
+      - SERVER_URL=http://localhost:3002
     networks:
       - aol_chat_network
     depends_on:
