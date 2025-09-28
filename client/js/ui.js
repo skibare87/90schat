@@ -188,6 +188,7 @@ class UIManager {
         // Connect to chat and initialize AOL manager
         try {
             await window.chatManager.connect();
+            await window.chatManager.loadRooms();
             await window.aolManager.initialize();
         } catch (error) {
             Utils.showError(`Failed to connect to chat: ${error.message}`);
@@ -239,6 +240,13 @@ class UIManager {
         });
 
         chatWindow.style.zIndex = ++this.windowZIndex;
+        chatWindow.style.position = 'absolute';
+        chatWindow.style.top = '50px';
+        chatWindow.style.left = '50px';
+        chatWindow.style.width = '640px';
+        chatWindow.style.height = '480px';
+        chatWindow.style.display = 'block';
+        chatWindow.style.visibility = 'visible';
 
         chatWindow.innerHTML = `
             <div class="window-header chat-header">
@@ -335,8 +343,12 @@ class UIManager {
         // Make window draggable
         this.makeDraggable(chatWindow);
 
-        // Add to DOM and track
-        document.querySelector('.desktop').appendChild(chatWindow);
+        // Add to DOM and track - specifically target chat screen desktop
+        const chatDesktop = document.querySelector('#chat-screen .desktop');
+        if (chatDesktop) {
+            chatDesktop.appendChild(chatWindow);
+        }
+
         this.activeWindows.set(roomId, chatWindow);
 
         // Add taskbar item

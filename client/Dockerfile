@@ -2,10 +2,10 @@
 FROM nginx:alpine
 
 # Copy custom nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY client/nginx.conf /etc/nginx/nginx.conf
 
 # Copy application files
-COPY . /usr/share/nginx/html
+COPY client/ /usr/share/nginx/html
 
 # Create basic assets directory structure
 RUN mkdir -p /usr/share/nginx/html/assets
